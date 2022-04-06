@@ -1,0 +1,22 @@
+[alias]
+	co = checkout
+	cm = commit
+	st = status
+	fe = fetch
+    pu = !git push origin `git branch --show-current`
+	pl = !git pull origin `git branch --show-current`
+    lg = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative -20
+	fepl = !git fetch && git pull origin `git branch --show-current`
+	squash = !git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
+	undo = "!git reset HEAD~"
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+[user]
+	name = Dev Tanna
+	email = dev.tanna@shopify.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[include]
+	path = /Users/devtanna/.config/dev/gitconfig
